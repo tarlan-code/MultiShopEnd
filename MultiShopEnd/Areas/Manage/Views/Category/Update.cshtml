@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Update";
+}
+@model UpdateCategoryVM
+
+<section id="multiple-column-form">
+    <div class="row match-height">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <form class="form" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input asp-for="Name" class="form-control" placeholder="Name">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-12 mt-4">
+                                    <div class="form-group">
+                                        <input asp-for="Image" class="form-control">
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+
+                                        <img src="~/assets/img/Category/@(Model?.ImageUrl ?? ViewBag.ImgUrl)" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-outline-success me-1 mb-1">Submit</button>
+                                    <a asp-action="Index" asp-controller="Category" class="btn btn-outline-danger me-1 mb-1">Cancel</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

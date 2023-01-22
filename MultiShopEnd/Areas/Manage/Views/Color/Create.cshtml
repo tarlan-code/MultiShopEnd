@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+@model Color
+
+<section id="multiple-column-form">
+    <div class="row match-height">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <form class="form" method="post">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input asp-for="Name" class="form-control" placeholder="Name">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-outline-success me-1 mb-1">Submit</button>
+                                    <a asp-action="Index" asp-controller="Color" class="btn btn-outline-danger me-1 mb-1">Cancel</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

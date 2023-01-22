@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+}
+@model Category
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-6 m-auto">
+            <img src="~/assets/img/Category/@Model.ImageUrl" class="img-fluid d-block m-auto" alt="...">
+        </div>
+    </div>
+    <div class="row">
+        <h4>Title</h4>
+        <p>@Model.Name</p>
+        <h4>Status</h4>
+        <p>@(Model.IsDeleted ? "Deactive" : "Active") <a asp-action="ChangeStatus"  asp-route-id="@Model.Id" class="btn btn-warning">Change</a></p>
+    </div>
+</div>

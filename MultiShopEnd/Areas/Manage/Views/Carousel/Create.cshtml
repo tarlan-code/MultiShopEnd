@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+@model CreateCarouselVM
+
+<section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form class="form" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label>Title</label>
+                                            <input asp-for="Title"  class="form-control" placeholder="Title" >
+                                            <span asp-validation-for="Title" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                        <textarea asp-for="Desc" class="form-control"></textarea>
+                                        <span asp-validation-for="Desc" class="text-danger"></span>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                        <label>Button Text</label>
+                                        <input asp-for="BtnText" class="form-control" placeholder="Button Text">
+                                        <span asp-validation-for="BtnText" class="text-danger"></span>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Button Url</label>
+                                            <input asp-for="BtnUrl" class="form-control" placeholder="Button URL">
+                                        <span asp-validation-for="BtnUrl" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12 mt-4">
+                                        <div class="form-group">
+                                        <input  asp-for="Image" class="form-control">
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Order</label>
+                                            <input asp-for="Order" class="form-control" placeholder="Order">
+                                        <span asp-validation-for="Order" class="text-danger"></span>
+                                    </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-outline-success me-1 mb-1">Submit</button>
+                                    <a asp-action="Index" asp-controller="Carousel" class="btn btn-outline-danger me-1 mb-1">Cancel</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
