@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MultiShopEnd.Models;
 
 namespace MultiShopEnd.DAL
 {
-    public class AppDbContext:DbContext 
+    public class AppDbContext:IdentityDbContext 
 
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
@@ -20,7 +22,7 @@ namespace MultiShopEnd.DAL
         public DbSet<Color> Colors { get; set; }
         public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<ProductColor> ProductColors { get; set; }
-
-
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<IdentityRole> IdentityRoles { get; set; }
     }
 }

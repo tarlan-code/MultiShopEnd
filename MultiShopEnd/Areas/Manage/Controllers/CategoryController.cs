@@ -20,7 +20,7 @@ namespace MultiShopEnd.Areas.Manage.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.Categories);
+            return View(_context.Categories.Where(c=>c.Id != 3));
         }
 
         public IActionResult Delete(int? id)

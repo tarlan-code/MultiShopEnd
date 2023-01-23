@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+
+}
+@model IEnumerable<ProductInfo>
+<div class="page-title">
+    <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>Product Informations</h3>
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="card">
+        <div class="card-header ">
+            <a asp-action="Create">
+                <span class="fa-fw select-all fas"></span>
+                Add
+            </a>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped" id="table1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Text</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>
+                                @(item.Text.Length > 25 ? item.Text.Substring(0, 24) + "..." : item.Text)
+                                <button  type="button" class="bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#exampleModal_@item.Id"><i class="bi bi-box-arrow-up-right text-info"></i></button>
+                            </td>
+                            <td>@(item.IsDeleted ? "Deactive" : "Active") <a asp-action="ChangeStatus" asp-route-id="@item.Id"><i class="bi bi-arrow-repeat fa-lg text-primary"></i></a> </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash-fill fa-lg text-danger me-2"></i></a>
+                                <a asp-action="Update" asp-route-id="@item.Id"><i class="bi bi-pencil-square text-warning fa-lg me-2"></i></a>
+                            </td>
+                        </tr>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal_@item.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @item.Text
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </tbody>
+            </table>
+        </div>
+   
+
+       
+
+    </div>
+
+</section>
+
+
+
